@@ -8,7 +8,8 @@
   --cream:        #fafaf9;
   --cream-alt:    #f2ede4;
   --cream-card:   #ffffff;
-  --bordeaux:     #7f1d1d;
+  --bordeaux-rgb: 127, 29, 29;
+  --bordeaux:     rgba(var(--bordeaux-rgb), 1);
   --bordeaux-mid: #991b1b;
   --bordeaux-warm:#b91c1c;
   --gold:         #b45309;       /* amber-700 — warm gold accent */
@@ -31,7 +32,7 @@ img { display: block; max-width: 100%; }
 ::-webkit-scrollbar-thumb { background: var(--bordeaux); border-radius: 99px; }
 
 /* ─── Text Selection ─── */
-::selection { background: rgba(127, 29, 29, 0.15); color: var(--bordeaux); }
+::selection { background: rgba(var(--bordeaux-rgb), 0.15); color: var(--bordeaux); }
 
 /* ═══════════════════════════════════════════════════════
    TYPOGRAPHY — Google Fonts loaded in <head>
@@ -226,7 +227,7 @@ img { display: block; max-width: 100%; }
   border: 3px solid var(--cream-alt);
   box-shadow:
     0 0 0 6px var(--cream),
-    0 0 0 7px rgba(127, 29, 29, 0.18),
+    0 0 0 7px rgba(var(--bordeaux-rgb), 0.18),
     0 12px 32px rgba(28, 25, 23, 0.12);
   transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
               box-shadow 0.4s ease;
@@ -241,7 +242,7 @@ img { display: block; max-width: 100%; }
   transform: translateY(-6px) scale(1.02);
   box-shadow:
     0 0 0 6px var(--cream),
-    0 0 0 7px rgba(127, 29, 29, 0.32),
+    0 0 0 7px rgba(var(--bordeaux-rgb), 0.32),
     0 20px 48px rgba(28, 25, 23, 0.18);
 }
 .dish-card:hover .dish-circle img {
@@ -396,6 +397,7 @@ img { display: block; max-width: 100%; }
   font-family: 'DM Sans', system-ui, sans-serif;
   transition: all 0.25s ease;
   -webkit-appearance: none;
+  appearance: none;
 }
 .form-input::placeholder { color: var(--muted); }
 .form-input:focus {
@@ -406,6 +408,13 @@ img { display: block; max-width: 100%; }
 }
 .form-input:invalid:not(:placeholder-shown) { border-color: rgba(239, 68, 68, 0.5); }
 select.form-input option { background: var(--cream); color: var(--anthracite); }
+select.form-input {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='rgba(127, 29, 29, 0.6)'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1.25rem;
+  padding-right: 2.5rem;
+}
 input[type="date"].form-input::-webkit-calendar-picker-indicator {
   filter: invert(0.3) sepia(0.8) saturate(3) hue-rotate(330deg);
   cursor: pointer;
@@ -469,7 +478,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   pointer-events: none;
   z-index: 2;
   mix-blend-mode: multiply;
-  opacity: 0.4;
+  opacity: 0.3;
 }
 
 /* Responsive Navbar Text Colors based on Scroll */
@@ -481,7 +490,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
 #navbar.scrolled .nav-link { color: var(--ink); }
 #navbar.scrolled .nav-link:hover { color: var(--bordeaux); }
 #navbar.scrolled .nav-logo { color: var(--anthracite); }
-#navbar.scrolled .nav-subtitle { color: rgba(127, 29, 29, 0.8); } /* text-bordeaux/80 */
+#navbar.scrolled .nav-subtitle { color: rgba(var(--bordeaux-rgb), 0.8); } /* text-bordeaux/80 */
 
 
 #menu-toggle .hamburger-line { background-color: var(--cream); }
