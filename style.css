@@ -111,9 +111,10 @@ img { display: block; max-width: 100%; }
 #menu-toggle.is-open .hamburger-line:nth-child(2) { opacity: 0; transform: scaleX(0); }
 #menu-toggle.is-open .hamburger-line:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-/* ═══════════════════════════════════════════════════════
-   HERO
-   ═══════════════════════════════════════════════════════ */
+#hero {
+  background-color: #000000;
+}
+
 @keyframes bounce-slow {
   0%, 100% { transform: translateX(-50%) translateY(0); }
   50%       { transform: translateX(-50%) translateY(7px); }
@@ -466,7 +467,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
   background-size: 200px 200px;
   pointer-events: none;
-  z-index: 1;
+  z-index: 2;
   mix-blend-mode: multiply;
   opacity: 0.4;
 }

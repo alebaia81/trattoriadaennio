@@ -344,10 +344,12 @@ function initNavigation() {
    INIT ALL
 ───────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
+  // Init Video ASAP
+  initHeroVideo();
+  
   renderMenu();
   initNavbar();
   initMobileMenu();
-  initHeroVideo();
   initScrollAnimations();
   initBookingForm();
   initNavigation();
