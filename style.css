@@ -1,0 +1,497 @@
+/* ═══════════════════════════════════════════════════════
+   TRATTORIA DA ENNIO — Traditional-Editorial CSS v2
+   Aesthetic: Cucina Editoriale · Old-Italy refined
+   ═══════════════════════════════════════════════════════ */
+
+/* ─── Design Tokens ─── */
+:root {
+  --cream:        #fafaf9;
+  --cream-alt:    #f2ede4;
+  --cream-card:   #ffffff;
+  --bordeaux:     #7f1d1d;
+  --bordeaux-mid: #991b1b;
+  --bordeaux-warm:#b91c1c;
+  --gold:         #b45309;       /* amber-700 — warm gold accent */
+  --gold-light:   #d97706;
+  --anthracite:   #1c1917;
+  --ink:          #44403c;
+  --muted:        #78716c;
+  --border:       rgba(127, 29, 29, 0.12);
+}
+
+/* ─── Base Reset ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { -webkit-font-smoothing: antialiased; background-color: var(--cream); color: var(--anthracite); }
+img { display: block; max-width: 100%; }
+
+/* ─── Custom Scrollbar ─── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb { background: var(--bordeaux); border-radius: 99px; }
+
+/* ─── Text Selection ─── */
+::selection { background: rgba(127, 29, 29, 0.15); color: var(--bordeaux); }
+
+/* ═══════════════════════════════════════════════════════
+   TYPOGRAPHY — Google Fonts loaded in <head>
+   Display: Cormorant Garamond (italic, old-style numerals)
+   Body: DM Sans (clean, geometric, highly legible)
+   ═══════════════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════════════════════════
+   NAVBAR — Sticky with gold border on scroll
+   ═══════════════════════════════════════════════════════ */
+#navbar {
+  background: transparent;
+  backdrop-filter: none;
+  transition: background 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+#navbar.scrolled {
+  background: rgba(250, 250, 249, 0.97);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1.5px solid var(--gold);
+  box-shadow: 0 2px 32px rgba(28, 25, 23, 0.08);
+}
+
+/* Nav links — underline draw */
+.nav-link {
+  position: relative;
+  letter-spacing: 0.04em;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  right: 100%;
+  height: 1px;
+  background: var(--bordeaux);
+  transition: right 0.3s ease;
+}
+.nav-link:hover::after { right: 0; }
+
+/* Booking button — golden, in header */
+.nav-prenota {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1.25rem;
+  background: var(--gold);
+  color: #fff;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+  box-shadow: 0 2px 12px rgba(180, 83, 9, 0.3);
+}
+.nav-prenota:hover {
+  background: var(--gold-light);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(180, 83, 9, 0.4);
+}
+
+/* CTA btn (hero and generic) */
+.cta-btn {
+  box-shadow: 0 2px 14px rgba(127, 29, 29, 0.25);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+.cta-btn:hover {
+  box-shadow: 0 6px 28px rgba(127, 29, 29, 0.4);
+  transform: translateY(-2px);
+}
+
+/* ─── Hamburger animation ─── */
+#menu-toggle.is-open .hamburger-line:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+#menu-toggle.is-open .hamburger-line:nth-child(2) { opacity: 0; transform: scaleX(0); }
+#menu-toggle.is-open .hamburger-line:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+/* ═══════════════════════════════════════════════════════
+   HERO
+   ═══════════════════════════════════════════════════════ */
+@keyframes bounce-slow {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(7px); }
+}
+.animate-bounce-slow { animation: bounce-slow 2.4s ease-in-out infinite; }
+
+/* ─── Fade-in sequence (hero) ─── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(22px);
+  animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.fade-in:nth-child(1) { animation-delay: 0.15s; }
+.fade-in:nth-child(2) { animation-delay: 0.30s; }
+.fade-in:nth-child(3) { animation-delay: 0.50s; }
+.fade-in:nth-child(4) { animation-delay: 0.65s; }
+.fade-in:nth-child(5) { animation-delay: 0.80s; }
+
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Scroll-triggered fade ─── */
+.fade-in-scroll {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.fade-in-scroll.js-ready {
+  opacity: 0;
+  transform: translateY(28px);
+}
+.fade-in-scroll.visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION ORNAMENT
+   ═══════════════════════════════════════════════════════ */
+.ornament-line {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+}
+.ornament-line::before,
+.ornament-line::after {
+  content: '';
+  flex: 1;
+  max-width: 80px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--bordeaux), transparent);
+}
+
+/* ═══════════════════════════════════════════════════════
+   PIATTI — Circular card layout (signature element)
+   ═══════════════════════════════════════════════════════ */
+
+/* Container orizzontale scrollabile su mobile */
+.piatti-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem 2rem;
+  justify-items: center;
+}
+
+/* 5 cards: row 2 has 2 items — center them */
+.piatti-grid > article:nth-child(4) {
+  grid-column: 1;
+}
+.piatti-grid > article:nth-child(5) {
+  grid-column: 2;
+}
+
+@media (max-width: 900px) {
+  .piatti-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .piatti-grid > article:nth-child(4),
+  .piatti-grid > article:nth-child(5) {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 560px) {
+  .piatti-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dish-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0;
+}
+
+/* Circular image wrapper */
+.dish-circle {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+  border: 3px solid var(--cream-alt);
+  box-shadow:
+    0 0 0 6px var(--cream),
+    0 0 0 7px rgba(127, 29, 29, 0.18),
+    0 12px 32px rgba(28, 25, 23, 0.12);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.4s ease;
+}
+.dish-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.dish-card:hover .dish-circle {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow:
+    0 0 0 6px var(--cream),
+    0 0 0 7px rgba(127, 29, 29, 0.32),
+    0 20px 48px rgba(28, 25, 23, 0.18);
+}
+.dish-card:hover .dish-circle img {
+  transform: scale(1.08);
+}
+
+/* Badge piatto */
+.dish-badge {
+  position: absolute;
+  top: 12px;
+  right: 10px;
+  padding: 3px 10px;
+  background: var(--bordeaux);
+  color: #fff;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 99px;
+}
+
+.dish-name {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--anthracite);
+  line-height: 1.2;
+  margin-bottom: 0.4rem;
+  transition: color 0.25s ease;
+}
+.dish-card:hover .dish-name { color: var(--bordeaux); }
+
+.dish-desc {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.6;
+  max-width: 22ch;
+  margin-bottom: 0.75rem;
+}
+.dish-price {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--bordeaux);
+  letter-spacing: 0.05em;
+}
+
+/* ═══════════════════════════════════════════════════════
+   MENU TABS & ITEMS — Light editorial
+   ═══════════════════════════════════════════════════════ */
+.menu-tab {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  transition: all 0.25s ease;
+}
+.menu-tab:hover {
+  color: var(--bordeaux);
+  border-color: rgba(127, 29, 29, 0.35);
+  background: rgba(127, 29, 29, 0.04);
+}
+.menu-tab.active-tab {
+  background: var(--bordeaux);
+  color: var(--cream);
+  border-color: var(--bordeaux);
+  font-weight: 600;
+}
+
+.menu-item-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 14px 20px;
+  border-radius: 10px;
+  background: var(--cream-card);
+  border: 1px solid rgba(28,25,23,0.06);
+  gap: 12px;
+  transition: all 0.25s ease;
+}
+.menu-item-row:hover {
+  border-color: var(--border);
+  transform: translateX(4px);
+  background: var(--cream-alt);
+}
+.menu-item-name {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--anthracite);
+  flex: 1;
+}
+.menu-item-desc {
+  font-size: 0.75rem;
+  color: var(--muted);
+  flex: 2;
+  text-align: right;
+  padding-left: 12px;
+}
+.menu-item-price {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--bordeaux);
+  white-space: nowrap;
+}
+.menu-category-header {
+  margin: 28px 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--bordeaux);
+  letter-spacing: 0.08em;
+}
+
+/* ═══════════════════════════════════════════════════════
+   STORIA — Texture decorativa
+   ═══════════════════════════════════════════════════════ */
+.storia-quote {
+  border-left: 3px solid var(--bordeaux);
+  padding-left: 1.5rem;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.3rem;
+  font-style: italic;
+  line-height: 1.7;
+  color: var(--anthracite);
+}
+
+/* ═══════════════════════════════════════════════════════
+   BOOKING FORM — Light + warm
+   ═══════════════════════════════════════════════════════ */
+.form-label {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+.form-input {
+  width: 100%;
+  background: var(--cream);
+  border: 1px solid rgba(127, 29, 29, 0.2);
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: var(--anthracite);
+  font-size: 0.9rem;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  transition: all 0.25s ease;
+  -webkit-appearance: none;
+}
+.form-input::placeholder { color: var(--muted); }
+.form-input:focus {
+  outline: none;
+  border-color: var(--bordeaux);
+  box-shadow: 0 0 0 3px rgba(127, 29, 29, 0.08);
+  background: #fff;
+}
+.form-input:invalid:not(:placeholder-shown) { border-color: rgba(239, 68, 68, 0.5); }
+select.form-input option { background: var(--cream); color: var(--anthracite); }
+input[type="date"].form-input::-webkit-calendar-picker-indicator {
+  filter: invert(0.3) sepia(0.8) saturate(3) hue-rotate(330deg);
+  cursor: pointer;
+}
+#booking-form button[type="submit"] { box-shadow: 0 2px 20px rgba(127, 29, 29, 0.25); }
+#booking-form button[type="submit"]:hover { box-shadow: 0 4px 32px rgba(127, 29, 29, 0.4); }
+
+/* ═══════════════════════════════════════════════════════
+   SHADOW utility
+   ═══════════════════════════════════════════════════════ */
+.shadow-bordeaux {
+  box-shadow: 0 4px 20px rgba(127, 29, 29, 0.2);
+}
+
+/* ═══════════════════════════════════════════════════════
+   SOCIAL ICONS
+   ═══════════════════════════════════════════════════════ */
+.social-icon:hover { box-shadow: 0 0 14px rgba(127, 29, 29, 0.25); }
+
+/* ═══════════════════════════════════════════════════════
+   WHATSAPP FAB
+   ═══════════════════════════════════════════════════════ */
+#whatsapp-btn { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
+#whatsapp-btn:hover { box-shadow: 0 6px 28px rgba(37, 211, 102, 0.6); }
+
+/* ─── WhatsApp ping halo ─── */
+@keyframes wa-ping {
+  0%   { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+  70%  { box-shadow: 0 0 0 14px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+#whatsapp-btn { animation: wa-ping 2.4s ease-out infinite; }
+
+/* ═══════════════════════════════════════════════════════
+   GOLD DIVIDER
+   ═══════════════════════════════════════════════════════ */
+.gold-divider {
+  width: 48px;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, var(--bordeaux), transparent);
+  margin: 0 auto;
+}
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════ */
+@media (max-width: 640px) {
+  .menu-item-desc { display: none; }
+  .menu-item-row  { padding: 12px 14px; }
+  .dish-circle    { width: 150px; height: 150px; }
+  .dish-name      { font-size: 1.3rem; }
+}
+
+/* ─── Grain texture overlay on hero (subtle) ─── */
+.hero-grain::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: multiply;
+  opacity: 0.4;
+}
+
+/* Responsive Navbar Text Colors based on Scroll */
+#navbar .nav-link { color: rgba(250, 250, 249, 0.9); }
+#navbar .nav-link:hover { color: #fff; }
+#navbar .nav-logo { color: #fff; }
+#navbar .nav-subtitle { color: rgba(250, 250, 249, 0.7); }
+
+#navbar.scrolled .nav-link { color: var(--ink); }
+#navbar.scrolled .nav-link:hover { color: var(--bordeaux); }
+#navbar.scrolled .nav-logo { color: var(--anthracite); }
+#navbar.scrolled .nav-subtitle { color: rgba(127, 29, 29, 0.8); } /* text-bordeaux/80 */
+
+
+#menu-toggle .hamburger-line { background-color: var(--cream); }
+#navbar.scrolled #menu-toggle .hamburger-line { background-color: var(--bordeaux); }
+
+/* Responsive Navbar Logo Colors based on Scroll */
+#navbar .nav-logo-badge { border-color: rgba(250,250,249,0.5); }
+#navbar .nav-logo-badge-text { color: rgba(250,250,249,0.9); }
+#navbar .group:hover .nav-logo-badge { background-color: rgba(250,250,249,0.2); }
+
+#navbar.scrolled .nav-logo-badge { border-color: var(--bordeaux); }
+#navbar.scrolled .nav-logo-badge-text { color: var(--bordeaux); }
+#navbar.scrolled .group:hover .nav-logo-badge { background-color: var(--bordeaux); }
+#navbar.scrolled .group:hover .nav-logo-badge-text { color: var(--cream); }

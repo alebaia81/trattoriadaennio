@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trattoria Tipica Piacentina – Cucina Tradizionale Monticelli d'Ongina | Migliori Pisarei e Fasö Piacenza</title>
+  <meta name="description" content="Scopri la vera Cucina Tradizionale a Monticelli d'Ongina. Trattoria da Ennio: la Trattoria Tipica Piacentina con i Migliori Pisarei e Fasö di Piacenza, torta fritta e salumi DOP." />
+  <meta name="keywords" content="trattoria Caorso, Trattoria da Ennio, cucina piacentina, pisarei e fasò, fritto di pesce, anguilla, pesce gatto, torta fritta, ristorante Piacenza" />
+  <meta property="og:title" content="Trattoria da Ennio – Cucina Tipica Piacentina a Caorso" />
+  <meta property="og:description" content="Pesce di fiume, fritti di acqua dolce, pisarei e fasò, torta fritta con salumi. Una cucina di radici, in un'azienda agricola immersa nella campagna padana." />
+  <meta property="og:type" content="restaurant" />
+
+  <!-- Google Fonts — Cormorant Garamond (display/serif) + DM Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'cream':        '#fafaf9',
+            'cream-alt':    '#f2ede4',
+            'cream-card':   '#ffffff',
+            'bordeaux':     '#7f1d1d',
+            'bordeaux-mid': '#991b1b',
+            'bordeaux-warm':'#b91c1c',
+            'gold':         '#b45309',
+            'gold-light':   '#d97706',
+            'anthracite':   '#1c1917',
+            'ink':          '#44403c',
+            'muted':        '#78716c',
+          },
+          fontFamily: {
+            'serif': ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            'sans':  ['"DM Sans"', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- JSON-LD Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Trattoria da Ennio",
+    "description": "Cucina tipica piacentina, pesce di fiume e fritto di acqua dolce. Immersa nella campagna caorsana.",
+    "url": "https://www.trattoriadaennio.it",
+    "telephone": "+393489237921",
+    "priceRange": "$$",
+    "servesCuisine": "Piacentina Tradizionale",
+    "areaServed": ["Monticelli d'Ongina", "Caorso", "Castelvetro Piacentino", "San Pietro in Cerro"],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Strada per Caorso",
+      "addressLocality": "Caorso",
+      "addressRegion": "PC",
+      "postalCode": "29012",
+      "addressCountry": "IT"
+    },
+    "menu": "https://www.trattoriadaennio.it/#menu",
+    "acceptsReservations": true
+  }
+  </script>
+</head>
+<body class="bg-cream text-anthracite font-sans">
+
+  <!-- ═══════════════════════════════════════════════
+       NAVIGATION — Sticky, golden CTA on scroll
+  ═══════════════════════════════════════════════ -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50" aria-label="Navigazione principale">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+      <!-- Logo -->
+      <a href="#hero" class="flex items-center gap-3 group" aria-label="Trattoria da Ennio - Home">
+        <div class="nav-logo-badge w-10 h-10 border-2 rounded-full flex items-center justify-center transition-all duration-300">
+          <span class="nav-logo-badge-text font-serif text-sm font-bold transition-colors duration-300">TE</span>
+        </div>
+        <div class="leading-none">
+          <span class="nav-logo block font-serif text-xl font-semibold tracking-wide">Trattoria <em>Da Ennio</em></span>
+          <span class="nav-subtitle block text-[0.6rem] tracking-[0.3em] uppercase">Dal 1974 · Caorso (PC)</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#piatti"    class="nav-link text-sm transition-colors duration-300">I Nostri Piatti</a>
+        <a href="#menu"      class="nav-link text-sm transition-colors duration-300">Menu</a>
+        <a href="#chi-siamo" class="nav-link text-sm transition-colors duration-300">Chi Siamo</a>
+        <a href="#contatti"  class="nav-link text-sm transition-colors duration-300">Contatti</a>
+        <a href="tel:+393489237921" class="nav-prenota ml-2">
+          📞 &nbsp;Prenota Ora
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger -->
+      <button id="menu-toggle" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Apri menu" aria-expanded="false">
+        <span class="hamburger-line w-6 h-0.5 transition-all duration-300"></span>
+        <span class="hamburger-line w-6 h-0.5 transition-all duration-300"></span>
+        <span class="hamburger-line w-6 h-0.5 transition-all duration-300"></span>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-cream-alt border-t border-bordeaux/20 px-6 py-6 flex-col gap-5">
+      <a href="#piatti"    class="block text-lg font-serif italic text-ink hover:text-bordeaux transition-colors">I Nostri Piatti</a>
+      <a href="#menu"      class="block text-lg font-serif italic text-ink hover:text-bordeaux transition-colors">Menu</a>
+      <a href="#chi-siamo" class="block text-lg font-serif italic text-ink hover:text-bordeaux transition-colors">Chi Siamo</a>
+      <a href="#contatti"  class="block text-lg font-serif italic text-ink hover:text-bordeaux transition-colors">Contatti</a>
+      <a href="tel:+393489237921" class="nav-prenota justify-center text-center">
+        📞 &nbsp;Prenota: 348-9237921
+      </a>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════
+       HERO SECTION
+  ═══════════════════════════════════════════════ -->
+  <section id="hero" class="hero-grain relative min-h-screen flex items-center justify-center overflow-hidden">
+    <!-- Background video / image -->
+    <div class="absolute inset-0 overflow-hidden">
+      <video
+        id="hero-video"
+        autoplay muted loop playsinline preload="auto"
+        class="absolute inset-0 w-full h-full object-cover scale-105"
+        style="filter: brightness(0.72) saturate(1.05);"
+        poster="public/images/tortelli.webp"
+        aria-label="Preparazione artigianale della pasta della Trattoria da Ennio - Anolini e Pisarei fatti a mano"
+        title="Preparazione artigianale della pasta della Trattoria da Ennio"
+      >
+        <source src="public/Creazione_Video_Anolini_e_Pisarei.mp4" type="video/mp4" />
+        <!-- Fallback img se il video non è supportato -->
+        <img src="public/images/esterno.webp" alt="" class="absolute inset-0 w-full h-full object-cover" aria-hidden="true" />
+      </video>
+      <!-- Dark overlay 50% -->
+      <div class="absolute inset-0 bg-black/60"></div>
+      
+    </div>
+
+    <!-- Bordeaux top line -->
+    <div class="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-cream to-transparent opacity-30"></div>
+
+    <!-- Hero Content -->
+    <div class="relative z-10 text-center px-6 max-w-4xl mx-auto pt-28">
+      <p class="fade-in text-cream/90 text-xs tracking-[0.45em] uppercase mb-5 font-light">Tradizione · Territorio · Piacenza</p>
+
+      <h1 class="fade-in font-serif text-5xl md:text-7xl lg:text-8xl font-semibold leading-[1.05] mb-6 text-cream drop-shadow-lg">
+        Trattoria da Ennio<br />
+        <em class="text-3xl md:text-4xl lg:text-5xl font-italic text-cream/90 block mt-4 font-light">Sapori della Bassa Piacentina dal 1974</em>
+      </h1>
+
+      <p class="fade-in text-cream/80 text-base md:text-lg mb-10 font-light leading-relaxed max-w-xl mx-auto">
+        Immersa nella campagna caorsana, la Trattoria da Ennio porta in tavola <strong class="font-medium text-cream">pesce di fiume fritto</strong>, 
+        <strong class="font-medium text-cream">pisarei e fasò</strong> e la celebre 
+        <strong class="font-medium text-cream">torta fritta con salumi</strong>.<br />
+        Cucina di radici, pasta fatta in casa, verdure dell'orto.
+      </p>
+
+      <div class="fade-in flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="tel:+393489237921"
+           class="cta-btn px-8 py-4 bg-bordeaux text-cream font-semibold text-sm rounded-lg flex items-center gap-2 hover:bg-bordeaux-mid transition-all duration-300">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2c.28-.28.67-.36 1.02-.25A11.36 11.36 0 0020 15.5c.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.55 3.57-.09.35-.01.74-.43 1.22z"/>
+          </svg>
+          Prenota: 348-9237921
+        </a>
+        <a href="https://wa.me/393489237921?text=Ciao!%20Vorrei%20prenotare%20un%20tavolo%20alla%20Trattoria%20Da%20Ennio."
+           target="_blank" rel="noopener"
+           class="px-8 py-4 bg-[#25D366] text-white font-semibold text-sm rounded-lg flex items-center gap-2 hover:bg-[#20b858] transition-all duration-300 hover:scale-105 shadow-md">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Scrivici su WhatsApp
+        </a>
+        <a href="#piatti" class="px-8 py-4 border border-cream/50 text-cream backdrop-blur-sm font-medium text-sm rounded-lg hover:bg-cream/10 transition-all duration-300">
+          Scopri i Piatti
+        </a>
+      </div>
+
+      <!-- Stats -->
+      <div class="fade-in flex flex-wrap justify-center gap-12 mt-20 border-t border-cream/15 pt-10">
+        <div class="text-center">
+          <div class="font-serif text-4xl text-cream font-semibold">50+</div>
+          <div class="text-[0.65rem] text-cream/60 tracking-[0.2em] uppercase mt-1">Anni di Tradizione</div>
+        </div>
+        <div class="text-center">
+          <div class="font-serif text-4xl text-cream font-semibold">100%</div>
+          <div class="text-[0.65rem] text-cream/60 tracking-[0.2em] uppercase mt-1">Pasta fatta in casa</div>
+        </div>
+        <div class="text-center">
+          <div class="font-serif text-4xl text-cream font-semibold">Km 0</div>
+          <div class="text-[0.65rem] text-cream/60 tracking-[0.2em] uppercase mt-1">Verdure dell'orto</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce-slow">
+      <span class="text-[0.6rem] text-cream/50 tracking-widest uppercase">Scopri</span>
+      <div class="w-px h-8 bg-gradient-to-b from-cream/50 to-transparent"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       I NOSTRI PIATTI — 4 card con immagini circolari
+       Top piatti: Torta Fritta, Pisarei, Fritto, Anolini
+  ═══════════════════════════════════════════════ -->
+  <section id="piatti" class="py-24 bg-cream-alt">
+    <div class="max-w-6xl mx-auto px-6">
+
+      <!-- Section header -->
+      <div class="text-center mb-16 fade-in-scroll">
+        <p class="text-bordeaux text-xs tracking-[0.4em] uppercase mb-3">Le Specialità</p>
+        <h2 class="font-serif text-4xl md:text-5xl font-semibold text-anthracite mb-4">I Nostri Piatti Forti</h2>
+        <div class="ornament-line">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="text-bordeaux opacity-70">
+            <circle cx="8" cy="8" r="4" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="8" cy="8" r="1.5" fill="currentColor"/>
+          </svg>
+        </div>
+        <p class="text-muted text-sm max-w-md mx-auto leading-relaxed">Ricette di famiglia tramandate da Ennio fino ad oggi, con ingredienti del territorio e pasta rigorosamente fatta a mano.</p>
+      </div>
+
+      <!-- 4 dish cards — circular images -->
+      <div class="piatti-grid fade-in-scroll">
+
+        <!-- 1: Torta Fritta con Salumi — TOP PIATTO -->
+        <article class="dish-card">
+          <div class="relative inline-block mb-5">
+            <div class="dish-circle" style="margin-bottom:0;">
+              <img src="public/images/torta fritta.webp" alt="Torta fritta tradizionale con salumi DOP piacentini - Trattoria da Ennio" style="object-position: center top;" />
+            </div>
+            <div class="dish-badge">★ N.1</div>
+          </div>
+          <h3 class="dish-name">Torta Fritta<br /><span class="text-xl">con Salumi</span></h3>
+          <p class="dish-desc">Pasta fritta croccante con culatello, coppa, pancetta e salame piacentino DOP</p>
+          <span class="dish-price">Antipasto</span>
+        </article>
+
+        <!-- 2: Pisarei e Fasò — tortelli come proxy visivo -->
+        <article class="dish-card">
+          <div class="relative inline-block mb-5">
+            <div class="dish-circle" style="margin-bottom:0;">
+              <img src="public/images/tortelli.webp" alt="Migliori Pisarei e Fasö Piacenza - pasta fresca fatta a mano Trattoria da Ennio" style="object-position: center;" />
+            </div>
+            <div class="dish-badge">Tradizione</div>
+          </div>
+          <h3 class="dish-name">Pisarei e Fasò</h3>
+          <p class="dish-desc">Gnocchetti di pane e farina con ricco sugo di fagioli borlotti, ricetta storica</p>
+          <span class="dish-price">Primo</span>
+        </article>
+
+        <!-- 3: Il Fritto di Acqua Dolce -->
+        <article class="dish-card">
+          <div class="relative inline-block mb-5">
+            <div class="dish-circle" style="margin-bottom:0;">
+              <img src="public/images/fritto .webp" alt="Fritto misto di acqua dolce - Trattoria da Ennio" style="object-position: center;" />
+            </div>
+            <div class="dish-badge">Specialità</div>
+          </div>
+          <h3 class="dish-name">Il Fritto<br /><span class="text-xl">di Acqua Dolce</span></h3>
+          <p class="dish-desc">Bocconcini di pesce gatto, anguilla e rane fritte — la specialità della casa</p>
+          <span class="dish-price">Secondo · € p.p.</span>
+        </article>
+
+        <!-- 4: Anolini in Brodo -->
+        <article class="dish-card">
+          <div class="relative inline-block mb-5">
+            <div class="dish-circle" style="margin-bottom:0;">
+              <img src="public/images/anolini in brodo.webp" alt="Anolini in brodo fatti a mano Trattoria da Ennio" style="object-position: center;" />
+            </div>
+          </div>
+          <h3 class="dish-name">Anolini<br /><span class="text-xl">in Brodo</span></h3>
+          <p class="dish-desc">Pasta fresca ripiena di stracotto servita nel classico brodo di terza piacentino</p>
+          <span class="dish-price">Primo</span>
+        </article>
+
+        <!-- 5: Pesce in Carpione -->
+        <article class="dish-card">
+          <div class="relative inline-block mb-5">
+            <div class="dish-circle" style="margin-bottom:0;">
+              <img src="public/images/pesce in carpione.webp" alt="Pesce in carpione marinato ricetta tradizionale - Trattoria da Ennio" style="object-position: center;" />
+            </div>
+            <div class="dish-badge">Del Fiume</div>
+          </div>
+          <h3 class="dish-name">Pesce<br /><span class="text-xl">in Carpione</span></h3>
+          <p class="dish-desc">Pesce di fiume marinato in carpione, preparazione tipica della tradizione padana</p>
+          <span class="dish-price">Antipasto</span>
+        </article>
+
+      </div>
+
+      <!-- Nota su prenotazione -->
+      <p class="text-center text-muted text-xs mt-10 fade-in-scroll italic">
+        Su prenotazione: alborelle fritte, anguilla o pesce gatto in umido con polenta · Menù personalizzabile a richiesta
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       MENU COMPLETO — Tab-based
+  ═══════════════════════════════════════════════ -->
+  <section id="menu" class="py-24 bg-cream">
+    <div class="max-w-4xl mx-auto px-6">
+
+      <!-- Header -->
+      <div class="text-center mb-14 fade-in-scroll">
+        <p class="text-bordeaux text-xs tracking-[0.4em] uppercase mb-3">Scopri tutto</p>
+        <h2 class="font-serif text-4xl md:text-5xl font-semibold text-anthracite mb-4">Il Menu</h2>
+        <div class="gold-divider mb-5"></div>
+        <p class="text-muted text-sm">Pasta rigorosamente fatta in casa · Verdure di produzione propria · Menu personalizzabile su prenotazione</p>
+      </div>
+
+      <!-- Menu tabs -->
+      <div class="flex justify-center gap-2 mb-10 flex-wrap fade-in-scroll">
+        <button onclick="showTab('antipasti')" id="tab-antipasti" class="menu-tab active-tab px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300">Antipasti</button>
+        <button onclick="showTab('primi')"    id="tab-primi"    class="menu-tab px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300">Primi Piatti</button>
+        <button onclick="showTab('secondi')"  id="tab-secondi"  class="menu-tab px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 relative">
+          Secondi Piatti
+          <span class="absolute -top-2 -right-2 text-[0.5rem] bg-bordeaux text-cream font-bold px-1.5 py-0.5 rounded-full tracking-wide">★</span>
+        </button>
+        <button onclick="showTab('dolci')"    id="tab-dolci"    class="menu-tab px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300">Dolci</button>
+      </div>
+
+      <!-- ANTIPASTI -->
+      <div id="menu-antipasti" class="menu-section space-y-3">
+        <!-- JS rendered -->
+      </div>
+      <!-- PRIMI -->
+      <div id="menu-primi" class="menu-section hidden space-y-3"></div>
+      <!-- SECONDI -->
+      <div id="menu-secondi" class="menu-section hidden space-y-3"></div>
+      <!-- DOLCI -->
+      <div id="menu-dolci" class="menu-section hidden space-y-3"></div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       CHI SIAMO / LA STORIA
+  ═══════════════════════════════════════════════ -->
+  <section id="chi-siamo" class="py-24 bg-cream-alt relative overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle at 1px 1px, #7f1d1d 1px, transparent 0); background-size: 36px 36px;"></div>
+
+    <div class="max-w-6xl mx-auto px-6 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+        <!-- Testo -->
+        <div class="fade-in-scroll">
+          <p class="text-bordeaux text-xs tracking-[0.4em] uppercase mb-4">La Nostra Storia</p>
+          <h2 class="font-serif text-4xl md:text-5xl font-semibold text-anthracite mb-8 leading-tight">
+            Sapori, Storia<br />e <em class="text-bordeaux">Tradizione</em>
+          </h2>
+
+          <blockquote class="storia-quote mb-8">
+            «Una cucina di famiglia, nata per passione e rimasta fedele alle sue radici per oltre cinquant'anni.»
+          </blockquote>
+
+          <div class="space-y-5 text-ink text-sm leading-relaxed">
+            <p>
+              Fu <strong class="text-anthracite">Ennio</strong>, ex camionista, con la moglie Gabriella a dare inizio a quest'avventura — oltre 25 anni nella frazione di Muradolo, poi dal 1999 nell'attuale sede: un'<strong class="text-anthracite">ex azienda agricola immersa nella campagna caorsana</strong>, a pochi passi dal casello autostradale in direzione Caorso.
+            </p>
+            <p>
+              Oggi è il figlio <strong class="text-anthracite">William</strong>, insieme alla moglie Monica, a portare avanti questa tradizione. In cucina, William si esprime al meglio con la specialità della casa: il famoso <strong class="text-bordeaux">fritto di acqua dolce</strong> — bocconcini di pesce gatto, anguilla e rane fritte.
+            </p>
+            <p>
+              La pasta — pisarei, tortelli, anolini — è <strong class="text-anthracite">rigorosamente fatta in casa</strong>. Le verdure vengono dall'orto di proprietà. I salumi sono DOP piacentini. Tre sale accoglienti, atmosfera calda e familiare.
+            </p>
+          </div>
+
+          <!-- Stats -->
+          <div class="mt-10 flex gap-8 pt-8 border-t border-bordeaux/10">
+            <div>
+              <div class="font-serif text-3xl text-bordeaux font-semibold">1974</div>
+              <div class="text-[0.65rem] text-muted tracking-widest uppercase mt-1">Anno di Fondazione</div>
+            </div>
+            <div class="w-px bg-bordeaux/15"></div>
+            <div>
+              <div class="font-serif text-3xl text-bordeaux font-semibold">3</div>
+              <div class="text-[0.65rem] text-muted tracking-widest uppercase mt-1">Sale Accoglienti</div>
+            </div>
+            <div class="w-px bg-bordeaux/15"></div>
+            <div>
+              <div class="font-serif text-3xl text-bordeaux font-semibold">100%</div>
+              <div class="text-[0.65rem] text-muted tracking-widest uppercase mt-1">Pasta fatta in casa</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Immagine decorativa -->
+        <div class="fade-in-scroll relative">
+          <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+            <img src="public/images/interno.webp" alt="Interno della Trattoria da Ennio – sala e cucina tradizionale" class="w-full h-96 lg:h-[520px] object-cover" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-cream-alt/70 via-transparent to-transparent"></div>
+          </div>
+          <!-- Floating quote -->
+          <div class="absolute -bottom-6 -left-6 bg-cream border border-bordeaux/20 rounded-2xl p-6 max-w-xs shadow-bordeaux">
+            <p class="font-serif italic text-anthracite text-sm leading-relaxed">«La vera cucina non si improvvisa: si tramanda con i sapori del cuore.»</p>
+            <p class="text-bordeaux text-xs mt-3 tracking-wide">— La famiglia di Ennio</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       BOOKING / CONTATTO
+  ═══════════════════════════════════════════════ -->
+  <section id="prenota" class="py-24 bg-cream relative overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle at 1px 1px, #7f1d1d 1px, transparent 0); background-size: 36px 36px;"></div>
+
+    <div class="max-w-3xl mx-auto px-6 relative z-10">
+      <div class="text-center mb-12 fade-in-scroll">
+        <p class="text-bordeaux text-xs tracking-[0.4em] uppercase mb-3">Riserva il tuo posto</p>
+        <h2 class="font-serif text-4xl md:text-5xl font-semibold text-anthracite mb-4">Prenota un Tavolo</h2>
+        <div class="gold-divider"></div>
+        <p class="text-muted text-sm mt-4">Chiamaci direttamente al <strong class="text-bordeaux">348-9237921</strong> oppure compila il modulo.</p>
+      </div>
+
+      <div class="bg-cream-card border border-cream/15 rounded-2xl p-8 md:p-10 shadow-bordeaux fade-in-scroll">
+        <!-- Direct call CTA -- paramount for a trattoria -->
+        <div class="text-center mb-8 p-6 bg-cream-alt rounded-xl border border-bordeaux/10">
+          <p class="text-muted text-xs uppercase tracking-widest mb-3">Per prenotazioni veloci</p>
+          <a href="tel:+393489237921" class="inline-flex items-center gap-3 font-serif text-3xl font-semibold text-bordeaux hover:text-bordeaux-mid transition-colors">
+            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2c.28-.28.67-.36 1.02-.25A11.36 11.36 0 0020 15.5c.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.55 3.57-.09.35-.01.74-.43 1.22z"/></svg>
+            348-9237921
+          </a>
+          
+        </div>
+
+        <form id="booking-form" novalidate>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            <div class="form-group">
+              <label for="nome" class="form-label">Nome e Cognome *</label>
+              <input type="text" id="nome" name="nome" required placeholder="Mario Rossi" class="form-input" />
+            </div>
+            <div class="form-group">
+              <label for="telefono" class="form-label">Telefono *</label>
+              <input type="tel" id="telefono" name="telefono" required placeholder="+39 348 000 0000" class="form-input" />
+            </div>
+            <div class="form-group">
+              <label for="data" class="form-label">Data *</label>
+              <input type="date" id="data" name="data" required class="form-input" />
+            </div>
+            <div class="form-group">
+              <label for="ora" class="form-label">Ora *</label>
+              <select id="ora" name="ora" required class="form-input">
+                <option value="">Seleziona orario...</option>
+                <option value="Pranzo">Pranzo</option>
+                <option value="Cena">Cena</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="persone" class="form-label">Numero Persone *</label>
+              <select id="persone" name="persone" required class="form-input">
+                <option value="">Quante persone?</option>
+                <option value="1 persona">1 persona</option>
+                <option value="2 persone">2 persone</option>
+                <option value="3 persone">3 persone</option>
+                <option value="4 persone">4 persone</option>
+                <option value="5 persone">5 persone</option>
+                <option value="6 persone">6 persone</option>
+                <option value="7 persone">7 persone</option>
+                <option value="8 persone">8 persone</option>
+                <option value="9 persone">9 persone</option>
+                <option value="10 persone">10 persone</option>
+                <option value="11 persone">11 persone</option>
+                <option value="12 persone">12 persone</option>
+                <option value="13 persone">13 persone</option>
+                <option value="14 persone">14 persone</option>
+                <option value="15 persone">15 persone</option>
+                <option value="16 persone">16 persone</option>
+                <option value="17 persone">17 persone</option>
+                <option value="18 persone">18 persone</option>
+                <option value="19 persone">19 persone</option>
+                <option value="20 persone">20 persone</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="note" class="form-label">Note speciali</label>
+              <input type="text" id="note" name="note" placeholder="Allergie, menu personalizzato..." class="form-input" />
+            </div>
+
+          </div>
+
+          <div class="mt-8">
+            <button type="submit" class="w-full py-4 bg-bordeaux text-cream font-semibold text-sm rounded-xl hover:bg-bordeaux-mid transition-all duration-300 tracking-wider uppercase flex items-center justify-center gap-2">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Prenota via WhatsApp
+            </button>
+            <p class="text-xs text-muted text-center mt-3">Ti contatteremo al più presto per confermare.</p>
+            <div id="booking-feedback" class="mt-4 text-center text-sm font-medium hidden"></div>
+          </div>
+
+          <div id="booking-success" class="hidden mt-6 p-4 rounded-xl border border-bordeaux/30 bg-bordeaux/5 text-center">
+            <p class="text-bordeaux font-semibold">✓ Richiesta inviata con successo!</p>
+            <p class="text-sm text-muted mt-1">Grazie! Ti richiamiamo presto.</p>
+          </div>
+        
+          <div id="booking-feedback" class="mt-4 text-center text-sm font-medium hidden"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       CONTACT & MAP
+  ═══════════════════════════════════════════════ -->
+  <section id="contatti" class="py-24 bg-cream-alt">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-14 fade-in-scroll">
+        <p class="text-bordeaux text-xs tracking-[0.4em] uppercase mb-3">Vieni a trovarci</p>
+        <h2 class="font-serif text-4xl md:text-5xl font-semibold text-anthracite mb-4">Dove Siamo</h2>
+        <div class="gold-divider"></div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+
+        <!-- Info -->
+        <div class="fade-in-scroll space-y-7">
+
+          <div class="flex gap-4 items-start">
+            <div class="w-10 h-10 rounded-full bg-bordeaux/10 flex items-center justify-center shrink-0">
+              <span class="text-bordeaux text-lg">📍</span>
+            </div>
+            <div>
+              <h4 class="font-medium text-anthracite mb-1">Indirizzo</h4>
+              <p class="text-ink text-sm">A pochi passi dal casello autostradale, in direzione Caorso (PC). Sulla sinistra, la strada che porta alla trattoria — immersa nella campagna padana.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 items-start">
+            <div class="w-10 h-10 rounded-full bg-bordeaux/10 flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5 text-bordeaux" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2c.28-.28.67-.36 1.02-.25A11.36 11.36 0 0020 15.5c.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.55 3.57-.09.35-.01.74-.43 1.22z"/></svg>
+            </div>
+            <div>
+              <h4 class="font-medium text-anthracite mb-1">Telefono</h4>
+              <a href="tel:+393489237921" class="text-bordeaux hover:text-bordeaux-mid transition-colors font-serif text-xl">348-9237921</a>
+              
+            </div>
+          </div>
+
+          <div class="flex gap-4 items-start">
+            <div class="w-10 h-10 rounded-full bg-bordeaux/10 flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5 text-bordeaux" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <div>
+              <h4 class="font-medium text-anthracite mb-3">Orari di apertura</h4>
+              <div class="space-y-1.5 text-sm text-ink">
+                <div class="flex justify-between gap-8"><span>Martedì – Domenica</span><span class="font-medium text-anthracite">Pranzo e Cena</span></div>
+                <div class="flex justify-between gap-8 text-bordeaux/70"><span>Lunedì</span><span class="italic text-muted">Chiuso</span></div>
+                <p class="text-xs text-muted italic mt-2">Consigliata la prenotazione, specialmente per gruppi</p>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+        <!-- Map -->
+        <div class="fade-in-scroll">
+          <div class="rounded-2xl overflow-hidden border border-cream/15 shadow-bordeaux h-80 lg:h-96 relative">
+            <iframe
+              src="https://maps.google.com/maps?q=Trattoria+da+Ennio,+Caorso,+PC,+Italy&output=embed"
+              width="100%" height="100%"
+              style="border:0; filter: saturate(0.7) contrast(0.95);"
+              allowfullscreen=""
+              loading="lazy"
+              title="Mappa Trattoria Da Ennio – Caorso (PC)"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            <div class="absolute inset-0 pointer-events-none border border-bordeaux/10 rounded-2xl"></div>
+          </div>
+          <p class="text-xs text-muted text-center mt-3">
+            Caorso (PC) — <a href="https://maps.google.com?q=Trattoria+da+Ennio+Caorso" target="_blank" rel="noopener" class="text-bordeaux hover:text-bordeaux-mid transition-colors">Apri in Google Maps →</a>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════ -->
+  <footer class="bg-anthracite border-t border-bordeaux/20 py-12">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+
+        <!-- Logo -->
+        <div class="text-center md:text-left">
+          <div class="flex items-center gap-3 justify-center md:justify-start mb-3">
+            <div class="w-8 h-8 border border-bordeaux/60 rounded-full flex items-center justify-center">
+              <span class="font-serif text-bordeaux text-xs font-bold">TE</span>
+            </div>
+            <span class="font-serif text-xl text-cream">Trattoria <em>Da Ennio</em></span>
+          </div>
+          <p class="text-xs text-muted mb-1">Cucina Tipica Piacentina · Pesce di Fiume · Dal 1974</p>
+          <p class="text-[0.65rem] text-muted max-w-sm mt-3 leading-relaxed">Situata al confine tra Piacenza e Cremona, Trattoria da Ennio è il punto di riferimento per la cucina tradizionale locale per i comuni di Monticelli d'Ongina, Caorso, Castelvetro Piacentino e San Pietro in Cerro.</p>
+          <p class="text-xs text-muted">Caorso (PC) · P.IVA 01386910333</p>
+        </div>
+
+        <!-- Links -->
+        <div class="flex gap-8 text-sm text-muted">
+          <a href="#piatti"    class="hover:text-cream transition-colors">Piatti</a>
+          <a href="#menu"      class="hover:text-cream transition-colors">Menu</a>
+          <a href="#chi-siamo" class="hover:text-cream transition-colors">Chi Siamo</a>
+          <a href="#contatti"  class="hover:text-cream transition-colors">Contatti</a>
+        </div>
+
+        <!-- CTA -->
+        <a href="tel:+393489237921" class="nav-prenota">
+          📞 &nbsp;348-9237921
+        </a>
+      </div>
+
+      <div class="border-t border-white/5 mt-10 pt-6 text-center">
+        <p class="text-xs text-muted">© 2024 Trattoria Da Ennio – Tutti i diritti riservati · <a href="http://www.trattoriadaennio.it/privacy.html" class="hover:text-cream transition-colors">Privacy Policy</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp FAB -->
+  <a href="https://wa.me/393489237921?text=Ciao!%20Vorrei%20prenotare%20un%20tavolo%20alla%20Trattoria%20Da%20Ennio."
+     target="_blank" rel="noopener"
+     id="whatsapp-btn"
+     aria-label="Chatta su WhatsApp per prenotare"
+     class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[#25D366] flex items-center justify-center hover:scale-110 transition-transform duration-300">
+    <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <script src="main.js"></script>
+</body>
+</html>

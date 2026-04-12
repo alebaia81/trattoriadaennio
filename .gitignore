@@ -1,0 +1,7 @@
+.DS_Store
+fix_*.py
+update_*.py
+seo_update.py
+*.py
+*.mp4
+!public/*.mp4
