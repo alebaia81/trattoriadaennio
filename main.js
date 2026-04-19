@@ -341,11 +341,44 @@ function initNavigation() {
 }
 
 /* ─────────────────────────────────────────
+   COOKIE BANNER
+───────────────────────────────────────── */
+function initCookieBanner() {
+  const banner = document.getElementById('cookie-banner');
+  const acceptBtn = document.getElementById('accept-cookies');
+  if (!banner || !acceptBtn) return;
+
+  // Se l'utente ha già accettato, nascondi il banner immediatamente e termina
+  if (localStorage.getItem('cookiesAccepted') === 'true') {
+    banner.classList.add('hidden');
+    return;
+  }
+
+  // Altrimenti mostra il banner dopo un breve ritardo per l'animazione fluida dal basso
+  setTimeout(() => {
+    banner.classList.remove('translate-y-full');
+  }, 1000);
+
+  // Gestione dell'accettazione
+  acceptBtn.addEventListener('click', () => {
+    localStorage.setItem('cookiesAccepted', 'true');
+    banner.classList.add('translate-y-full');
+    
+    // Rimuove l'elemento dal DOM space terminata l'animazione
+    setTimeout(() => {
+      banner.classList.add('hidden');
+    }, 500);
+  });
+}
+
+/* ─────────────────────────────────────────
    INIT ALL
 ───────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   // Init Video ASAP
   initHeroVideo();
+  
+  initCookieBanner();
   
   renderMenu();
   initNavbar();
