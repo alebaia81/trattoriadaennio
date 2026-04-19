@@ -4,11 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Trattoria Tipica Piacentina – Cucina Tradizionale Monticelli d'Ongina | Migliori Pisarei e Fasö Piacenza</title>
-  <meta name="description" content="Scopri la vera Cucina Tradizionale a Monticelli d'Ongina. Trattoria da Ennio: la Trattoria Tipica Piacentina con i Migliori Pisarei e Fasö di Piacenza, torta fritta e salumi DOP." />
+  <meta name="description" content="Scopri la vera Cucina Tradizionale a Monticelli d'Ongina. Trattoria da Ennio: la Trattoria Tipica Piacentina con i Migliori Pisarei e Fasö, torta fritta e salumi." />
   <meta name="keywords" content="trattoria Caorso, Trattoria da Ennio, cucina piacentina, pisarei e fasò, fritto di pesce, anguilla, pesce gatto, torta fritta, ristorante Piacenza" />
   <meta property="og:title" content="Trattoria da Ennio – Cucina Tipica Piacentina a Caorso" />
   <meta property="og:description" content="Pesce di fiume, fritti di acqua dolce, pisarei e fasò, torta fritta con salumi. Una cucina di radici, in un'azienda agricola immersa nella campagna padana." />
   <meta property="og:type" content="restaurant" />
+
+  <!-- Preload risorse Hero per evitare micro lag e avviare il video immediatamente -->
+  <link rel="preload" as="image" href="public/images/hero_poster.png" />
+  <link rel="preload" as="video" type="video/mp4" href="public/dal_1972_hero_video.mp4" />
+
+  <style>
+    /* Previene flash bianco e layout shifts prima di Tailwind CDN */
+    body { background-color: #fafaf9; margin: 0; }
+    #hero { background-color: #000; min-height: 100vh; min-width: 100vw; position: relative; overflow: hidden; }
+    #hero-video, #hero img { position: absolute; top: 0; right: 0; bottom: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transform: scale(1.05); }
+  </style>
 
   <!-- Google Fonts — Cormorant Garamond (display/serif) + DM Sans (body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -234,7 +245,7 @@
         <article class="dish-card">
           <div class="relative inline-block mb-5">
             <div class="dish-circle" style="margin-bottom:0;">
-              <img src="public/images/torta fritta.webp" alt="Torta fritta tradizionale con salumi DOP piacentini - Trattoria da Ennio" style="object-position: center top;" />
+              <img src="public/images/torta fritta.webp" alt="Torta fritta tradizionale con salumi DOP piacentini - Trattoria da Ennio" style="object-position: center top;" loading="lazy" />
             </div>
             <div class="dish-badge">★ N.1</div>
           </div>
@@ -247,7 +258,7 @@
         <article class="dish-card">
           <div class="relative inline-block mb-5">
             <div class="dish-circle" style="margin-bottom:0;">
-              <img src="public/images/tortelli.webp" alt="Migliori Pisarei e Fasö Piacenza - pasta fresca fatta a mano Trattoria da Ennio" style="object-position: center;" />
+              <img src="public/images/tortelli.webp" alt="Migliori Pisarei e Fasö Piacenza - pasta fresca fatta a mano Trattoria da Ennio" style="object-position: center;" loading="lazy" />
             </div>
             <div class="dish-badge">Tradizione</div>
           </div>
@@ -260,7 +271,7 @@
         <article class="dish-card">
           <div class="relative inline-block mb-5">
             <div class="dish-circle" style="margin-bottom:0;">
-              <img src="public/images/fritto .webp" alt="Fritto misto di acqua dolce - Trattoria da Ennio" style="object-position: center;" />
+              <img src="public/images/fritto .webp" alt="Fritto misto di acqua dolce - Trattoria da Ennio" style="object-position: center;" loading="lazy" />
             </div>
             <div class="dish-badge">Specialità</div>
           </div>
@@ -273,7 +284,7 @@
         <article class="dish-card">
           <div class="relative inline-block mb-5">
             <div class="dish-circle" style="margin-bottom:0;">
-              <img src="public/images/anolini in brodo.webp" alt="Anolini in brodo fatti a mano Trattoria da Ennio" style="object-position: center;" />
+              <img src="public/images/anolini in brodo.webp" alt="Anolini in brodo fatti a mano Trattoria da Ennio" style="object-position: center;" loading="lazy" />
             </div>
           </div>
           <h3 class="dish-name">Anolini<br /><span class="text-xl">in Brodo</span></h3>
@@ -285,7 +296,7 @@
         <article class="dish-card">
           <div class="relative inline-block mb-5">
             <div class="dish-circle" style="margin-bottom:0;">
-              <img src="public/images/pesce in carpione.webp" alt="Pesce in carpione marinato ricetta tradizionale - Trattoria da Ennio" style="object-position: center;" />
+              <img src="public/images/pesce in carpione.webp" alt="Pesce in carpione marinato ricetta tradizionale - Trattoria da Ennio" style="object-position: center;" loading="lazy" />
             </div>
             <div class="dish-badge">Del Fiume</div>
           </div>
