@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════
-   TRATTORIA DA ENNIO — JAVASCRIPT
+   TRATTORIA TIPICA — JAVASCRIPT
    ═══════════════════════════════════════ */
 
 'use strict';
@@ -282,7 +282,7 @@ function initBookingForm() {
     }
 
     const basePhone = "393489237921";
-    const message = `Prenotazione Ennio:
+    const message = `Prenotazione Trattoria:
 - Nome: ${nome}
 - Telefono: ${telefono}
 - Persone: ${persone}
@@ -372,13 +372,30 @@ function initCookieBanner() {
 }
 
 /* ─────────────────────────────────────────
+   HERO SCROLL REVEAL
+   ───────────────────────────────────────── */
+function initHeroScrollReveal() {
+  const handleScroll = () => {
+    if (window.scrollY > 10) {
+      document.body.classList.add('hero-active');
+    } else {
+      document.body.classList.remove('hero-active');
+    }
+  };
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll();
+}
+
+/* ─────────────────────────────────────────
    INIT ALL
-───────────────────────────────────────── */
+   ───────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   // Init Video ASAP
   initHeroVideo();
   
   initCookieBanner();
+  initHeroScrollReveal();
   
   renderMenu();
   initNavbar();
@@ -386,5 +403,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollAnimations();
   initBookingForm();
   initNavigation();
-  console.log('%c🍷 Trattoria Da Ennio — Benvenuto!', 'color:#800020; font-size:14px; font-weight:bold;');
+  console.log('%c🍷 Trattoria Tipica — Benvenuto!', 'color:#800020; font-size:14px; font-weight:bold;');
 });
